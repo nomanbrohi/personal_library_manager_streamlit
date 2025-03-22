@@ -63,6 +63,10 @@ def remove_book():
 # 🔎 Search a Book
 def search_book():
     st.subheader("🔎 Search Book")
+
+    if not st.session_state.library:
+        st.warning("No Books available in library")
+        return
     
     book_titles = [book["title"] for book in st.session_state.library]
     searched_term = st.selectbox("Enter or Select Book Title: ", book_titles).strip().lower()
