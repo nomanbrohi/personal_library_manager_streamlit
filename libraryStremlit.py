@@ -1,7 +1,7 @@
 import streamlit as st
 import json
 import os
-
+import time 
 # 📂 Load Library Data
 def load_library(filename="library.json"):
     return json.load(open(filename)) if os.path.exists(filename) else []
@@ -32,7 +32,9 @@ def add_book():
             st.session_state.library.append(new_book)
             save_library(st.session_state.library)
             st.success("📚 Book added successfully!")
+            time.sleep(1)
             st.rerun()
+            return
 
 # ❌ Remove a Book
 def remove_book():
