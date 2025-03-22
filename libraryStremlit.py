@@ -95,8 +95,8 @@ def display_all_books():
 
     for book in st.session_state.library:
         read_status = "✅ Read" if book["read"] else "❌ Not Read"
+        st.subheader(f"**{book['title']}**")  
         st.markdown(f"""
-        **📖 Title:** {book['title']}  
         **✍🏾 Author:** {book['author']}  
         **📚 Genre:** {book['genre']}  
         **📅 Publication:** {book['publication']}  
